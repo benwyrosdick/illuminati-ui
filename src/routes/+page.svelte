@@ -12,6 +12,7 @@
 	$: usedLength = data.routine.args.length;
 	$: usedSpacing = data.routine.args.spacing;
 	$: usedSurroundSpacing = data.routine.args.surround_spacing;
+	$: usedReverse = data.routine.args.reverse;
 
 	const removeColor = (rgb, idx) => (e) => {
 		data.routine.args.colors = data.routine.args.colors.filter((_rgb, _idx) => _idx !== idx);
@@ -50,6 +51,10 @@
 
 		if (usedSurroundSpacing !== undefined) {
 			params.push(`surround_spacing=${usedSurroundSpacing}`);
+		}
+
+		if (usedReverse) {
+			params.push(`reverse=true`);
 		}
 
 		const url = `http://10.0.0.50:5000/routine/${usedRoutine}?${params.join('&')}`
@@ -94,10 +99,17 @@
 	<input type=number bind:value={data.routine.args.spacing} min=0 max=50>
 	<input type=range bind:value={data.routine.args.spacing} min=0 max=50>
 </label>
+
 <h3>Surround Spacing</h3>
 <label>
 	<input type=number bind:value={data.routine.args.surround_spacing} min=0 max=50>
 	<input type=range bind:value={data.routine.args.surround_spacing} min=0 max=50>
+</label>
+
+<h3>Reverse</h3>
+<label>
+	<input type=checkbox bind:checked={data.routine.args.reverse}>
+	Reverse
 </label>
 
 <h3>Colors</h3>
