@@ -10,6 +10,6 @@
 	.swatch {
 		width: 100px;
 		height: 100px;
-		border: 1px solid black;
+		border: 1px solid darkgrey;
 	}
 </style>

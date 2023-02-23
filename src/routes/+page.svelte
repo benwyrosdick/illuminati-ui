@@ -70,7 +70,7 @@
 <h3>Colors</h3>
 <div class="row">
 	{#each usedColors as rgb, idx}
-		<div on:click={removeColor(rgb, idx)}>
+		<div on:click={removeColor(rgb, idx)} class='color'>
 			<Swatch {rgb} />
 		</div>
 	{/each}
@@ -131,4 +131,11 @@
 		display: flex;
 		flex-direction: row;
 	}
+
+	.color {
+    display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 5px;
+  }
 </style>
